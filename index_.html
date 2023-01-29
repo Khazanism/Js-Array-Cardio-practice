@@ -124,10 +124,23 @@
       // 7. sort Exercise
       // Sort the people alphabetically by last name
 
-      const invNames = inventors.sort((start, end) =>
-        start.first > end.last ? 1 : -1
-      );
-      console.table(invNames);
+      //   const invNames = inventors.sort((start, end) =>
+      //     start.first > end.last ? 1 : -1
+      //   );
+      //   console.table(invNames);
+
+      const alpha = people.sort((start, end) =>
+        start.split(", ") > end.split(", ") ? 1 : -1
+      ); // 1st Opt
+
+      const alpha = people.sort((start, end) => {
+        const [alast, afirst] = start.split(", ");
+        const [blast, bfirst] = end.split(", ");
+
+        alast > blast ? 1 : -1;
+      }); // 2nd Opt
+
+      console.table(alpha);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -147,6 +160,8 @@
         "car",
         "truck",
       ];
+
+      //   const sumUpInstances = data.reduce(())
     </script>
   </body>
 </html>
