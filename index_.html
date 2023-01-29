@@ -133,12 +133,12 @@
         start.split(", ") > end.split(", ") ? 1 : -1
       ); // 1st Opt
 
-      const alpha = people.sort((start, end) => {
-        const [alast, afirst] = start.split(", ");
-        const [blast, bfirst] = end.split(", ");
+      //   const alpha = people.sort((start, end) => {
+      //     const [alast, afirst] = start.split(", ");
+      //     const [blast, bfirst] = end.split(", ");
 
-        alast > blast ? 1 : -1;
-      }); // 2nd Opt
+      //     alast > blast ? 1 : -1;
+      //   }); // 2nd Opt
 
       console.table(alpha);
 
@@ -161,7 +161,15 @@
         "truck",
       ];
 
-      //   const sumUpInstances = data.reduce(())
+      const sumUpInstances = data.reduce((obj, item) => {
+        if (!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+      }, {});
+
+      console.log(sumUpInstances);
     </script>
   </body>
 </html>
